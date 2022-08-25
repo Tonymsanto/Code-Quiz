@@ -7,10 +7,23 @@
     <link rel="stylesheet" type="text/css" href="./Assests/css/style.css" />
     <title>Science Quiz</title>
 </head>
-<body>
-    <header>Science Quiz</header>
-    <h1>Welcome to the science quiz! You will have 60 seconds to answer as many questions as possible and beat the high score. Be careful! If you get a question wrong, time will be taken away! Good luck</h1>
-    <button>Start Game</button>
+<body class="body" id="body">
+
+    <div class="highScore" id="highScore">
+        <button class="highScoreBtn" id="highScoreBtn">View High Scores</button>
+    </div>
+    <div class="timer" id="timer">Time:</div>
+    <div class="startTimer" id="startTimer" >60</div>
+    <div class="startingScreen" id="startingScreen">
+        <h1>
+            Science Quiz
+        </h1>
+        <h5>
+            Welcome to the science quiz! You will have 60 seconds to answer as many questions as possible and beat the high score. Be careful! If you get a question wrong, time will be taken away. Good luck!
+        </h5>
+        <button class="startButton" id="startButton" onclick="">Start Game</button>
+    </div>
+    
     <script type="text/javascript" src="./Assests/js/script.js"></script>
 </body>
 </html>

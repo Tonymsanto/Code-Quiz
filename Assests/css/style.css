@@ -1,0 +1,40 @@
+
+.body {
+    background-color: #41b3a3;
+}
+
+.highScore {
+
+}
+
+.highScoreBtn { 
+
+}
+
+.timer {
+    position: absolute;
+    top: 9px;
+    right: 45px;
+}
+
+.startTimer {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.startingScreen {
+    width: 600px;
+    height: 175px;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 5px;
+    border: 10px;
+    background-color: #e27d60;
+    text-align: center;
+    top: 50%;
+}
+
+.startButton {
+    
+}
