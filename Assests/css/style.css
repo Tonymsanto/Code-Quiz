@@ -3,14 +3,6 @@
     background-color: #41b3a3;
 }
 
-.highScore {
-
-}
-
-.highScoreBtn { 
-
-}
-
 .timer {
     position: absolute;
     top: 9px;
@@ -33,8 +25,4 @@
     background-color: #e27d60;
     text-align: center;
     top: 50%;
-}
-
-.startButton {
-    
 }
