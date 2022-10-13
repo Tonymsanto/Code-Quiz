@@ -4,25 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./Assests/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./Assests/css/style.css"/>
     <title>Science Quiz</title>
 </head>
 <body class="body" id="body">
-
     <div class="highScore" id="highScore">
         <button class="highScoreBtn" id="highScoreBtn">View High Scores</button>
     </div>
     <div class="timer" id="startTimer">Time:</div>
     <div class="startingScreen" id="startingScreen">
-        <h1>
-            Science Quiz
-        </h1>
+        <h1>Science Quiz</h1>
         <h5>
             Welcome to the science quiz! You will have 60 seconds to answer as many questions as possible and beat the high score. Be careful! If you get a question wrong, time will be taken away. Good luck!
         </h5>
         <button class="startButton" id="startButton" onclick="">Start Game</button>
     </div>
-    
+    <div class="hide" id="questionScreen">
+        <h2 id="question"></h2>
+        <div id="answers"></div>
+    </div>
     <script type="text/javascript" src="./Assests/js/script.js"></script>
 </body>
 </html>

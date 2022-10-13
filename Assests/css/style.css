@@ -1,20 +1,27 @@
-
 .body {
     background-color: #41b3a3;
 }
-
+ 
 .timer {
     position: absolute;
     top: 9px;
     right: 45px;
 }
-
+ 
+.choiceButton {
+    color: green;
+}
+ 
+.hide {
+    display: none;
+}
+ 
 .startTimer {
     position: absolute;
     top: 10px;
     right: 25px;
 }
-
+ 
 .startingScreen {
     width: 600px;
     height: 175px;
