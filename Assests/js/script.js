@@ -60,14 +60,36 @@ function beginQuiz() {
     startingScreen.setAttribute("class", "hide")
     questionScreen.removeAttribute("class", "hide");
     var showQuestion = questions[currentQuestion];
-    questionText.textContent = showQuestion.question;
-    answerText.textContent = "";
-    showQuestion.answers.forEach(function(answerChoice) {
+    questionText.innerHTML = showQuestion.question;
+    var showAnswers = questions[currentQuestion].answers;
+    answerText.innerHTML = "";
+    showAnswers.forEach(function(answerChoice) {
         var choiceBtn = document.createElement("button");
         choiceBtn.setAttribute("value", answerChoice);
         choiceBtn.setAttribute("class", "choiceButton");
         choiceBtn.textContent = answerChoice;
-        answerChoice.appendChild(choiceBtn);
+        answerText.appendChild(choiceBtn);
         choiceBtn.onclick = answer;
     });
+}
+
+function answer(user){
+    var userChoice = user.target;
+    if (userChoice.matches("answers")){
+        var makeDiv = document.createElement("makeDiv");
+        if (userChoice.textContent == questions[currentQuestion].correctAnswer) {
+            score ++;
+        }
+        else {
+            timeLeft = timeLeft - wrongPenalty;
+        }
+        }
+        currentQuestion++;
+        
+        if (currentQuestion >= questions.length) {
+            document.getElementById("makeDiv").innerHTML = "You have finished the quiz!" + "You got " + score + "/" + questions.length + "and ended with a score of" + timeLeft + "!";
+        }
+        else {
+            beginQuiz();
+        }
 }
