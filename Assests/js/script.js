@@ -4,6 +4,7 @@ var score = 0;
  
 var wrongPenalty = 10; //Lose 10 seconds if wrong
  
+var quizTimer = document.getElementById("startTimer");
 var startingScreen = document.getElementById("startingScreen");
 var questionScreen = document.getElementById("questionScreen");
 var finalScreen = document.getElementById("finalScreen");
@@ -12,15 +13,15 @@ var answerText = document.getElementById("answers");
  
 document.getElementById("startButton").addEventListener("click", function(){
     var timer = setInterval(function timeFunction(){
-        document.getElementById("startTimer").innerHTML = "Time: " + timeLeft + "&nbsp"+"seconds";
+        quizTimer.innerHTML = "Time: " + timeLeft + "&nbsp"+"seconds";
  
         timeLeft -= 1;
         if(timeLeft <= 0){
             clearInterval(timer);
-            document.getElementById("startTimer").innerHTML= "Time is up!";
+            quizTimer.innerHTML= "Time is up!";
         }
     }, 1000);
-    console.log(startTimer);
+
     beginQuiz();
 });
  
@@ -85,16 +86,32 @@ function answer(user){
         //timeLeft = timeLeft - wrongPenalty;
         //console.log(timeLeft);
     }
-    
+
     currentQuestion++;
     
     if (currentQuestion >= questions.length) {
         questionScreen.setAttribute("class", "hide");
         finalScreen.removeAttribute("class", "hide");
+        quizTimer.setAttribute("class", "hide");
         var end = document.getElementById("end");
         end.innerHTML = "You got " + score + "/" + questions.length + " and ended with a score of " + timeLeft + "!";
     }
     else {
         beginQuiz();
     }
+}
+
+function addInitials() {
+    var userInitials = document.getElementById("textBar").value;
+    initials.push(userInitials, timeLeft);
+    console.log(initials);
+    userInitials.value = "";
+    localStorage.setItem("initials", initials);
+}
+
+function highScore() {
+    finalScreen.setAttribute("class", "hide")
+    highScoreScreen.removeAttribute("class", "hide");
+    var allScores = localStorage.getItem("initials", initials);
+    allScores.innerHTML = JSON.stringify(initials, null, 2);
 }

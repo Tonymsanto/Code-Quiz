@@ -8,9 +8,6 @@
     <title>Science Quiz</title>
 </head>
 <body class="body" id="body">
-    <div class="highScore" id="highScore">
-        <button class="highScoreBtn" id="highScoreBtn">View High Scores</button>
-    </div>
     <div class="timer" id="startTimer">Time:</div>
     <div class="startingScreen" id="startingScreen">
         <h1>Science Quiz</h1>
@@ -24,8 +21,16 @@
         <div id="answers"></div>
     </div>
     <div class="hide" id="finalScreen">
-        <h1>You have finished the quiz</h1>
+        <button class="highScoreBtn" id="highScoreBtn" onclick="highScore()">View High Scores</button>
+        <h1>You have finished the quiz!</h1>
         <h5 id="end"></h5>
+        <input class="userInitial" id=textBar type="text" placeholder="Enter initials">
+        <button id="submitBtn" onclick="addInitials()" >Submit</button>
+    </div>
+    <div class="hide" id="highScoreScreen">
+        <button class="hide" id="homeBtn" onclick="beginQuiz()" >Home</button>
+        <h1>Score Board</h1>
+        <h5 id="scores"></h5>
     </div>
     <script type="text/javascript" src="./Assests/js/script.js"></script>
 </body>
