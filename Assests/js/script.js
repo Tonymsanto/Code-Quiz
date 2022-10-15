@@ -6,6 +6,7 @@ var wrongPenalty = 10; //Lose 10 seconds if wrong
  
 var startingScreen = document.getElementById("startingScreen");
 var questionScreen = document.getElementById("questionScreen");
+var finalScreen = document.getElementById("finalScreen");
 var questionText = document.getElementById("question");
 var answerText = document.getElementById("answers");
  
@@ -75,21 +76,25 @@ function beginQuiz() {
 
 function answer(user){
     var userChoice = user.target;
-    if (userChoice.matches("answers")){
-        var makeDiv = document.createElement("makeDiv");
-        if (userChoice.textContent == questions[currentQuestion].correctAnswer) {
+    if (userChoice.value == questions[currentQuestion].correctAnswer){
             score ++;
-        }
-        else {
-            timeLeft = timeLeft - wrongPenalty;
-        }
-        }
-        currentQuestion++;
-        
-        if (currentQuestion >= questions.length) {
-            document.getElementById("makeDiv").innerHTML = "You have finished the quiz!" + "You got " + score + "/" + questions.length + "and ended with a score of" + timeLeft + "!";
-        }
-        else {
-            beginQuiz();
-        }
+            //console.log(score);
+    }
+    else {
+        timeLeft -= wrongPenalty;
+        //timeLeft = timeLeft - wrongPenalty;
+        //console.log(timeLeft);
+    }
+    
+    currentQuestion++;
+    
+    if (currentQuestion >= questions.length) {
+        questionScreen.setAttribute("class", "hide");
+        finalScreen.removeAttribute("class", "hide");
+        var end = document.getElementById("end");
+        end.innerHTML = "You got " + score + "/" + questions.length + " and ended with a score of " + timeLeft + "!";
+    }
+    else {
+        beginQuiz();
+    }
 }
